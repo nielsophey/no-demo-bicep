@@ -10,7 +10,7 @@ resource myLogAnalytics 'Microsoft.OperationalInsights/workspaces@2021-06-01' = 
   tags: resourceTags
   properties: {
     sku: {
-      name:'Free'
+      name: 'PerGB2018'
     }
     retentionInDays: 7
   }
