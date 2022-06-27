@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-param env string = 'dev'
+param env string = 'dev-auto'
 param resLocation string = 'westeurope'
 
 param resourceGroupNames array = [
