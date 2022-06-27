@@ -1,6 +1,6 @@
 targetScope = 'subscription'
 
-param env string = 'dev-auto'
+param env string = 'dev'
 param resLocation string = 'westeurope'
 
 param resourceGroupNames array = [
@@ -22,3 +22,13 @@ module newResourceGroup 'module/rg-generic.bicep' = [for resourceGroupName in re
     resourceTags: resourceTags
   }
 }]
+
+module rgManagement 'management/management.bicep' = {
+  name: resourceGroupNames[0]
+  scope: resourceGroup('rg-${env}-${resourceGroupNames[0]}')
+  params: {
+    env: env
+    resourceLocation: resLocation
+    resourceTags: resourceTags
+  }
+}
